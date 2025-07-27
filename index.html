@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Devesh, Singhal, VIT, VIT Vellore, Agra, Student, Engineer">
+    <meta name="author" content="Devesh Singhal">
+    <meta name="description" content="Portfolio of Devesh Singhal, an aspiring AI Engineer & Data Scientist pursuing B.Tech in Information Security at VIT Vellore.">
+    <title>Devesh Singhal - Aspiring AI Engineer & Data Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #1a1a2e;
+            --secondary-dark: #16213e;
+            --accent-gold: #d4af37;
+            --accent-silver: #c0c0c0;
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8b8;
+            --text-muted: #8a8a8a;
+            --border-elegant: rgba(212, 175, 55, 0.2);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --hobby-green: #2e7d32;
+            --hobby-light-green: #a5d6a7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .elegant-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(192, 192, 192, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        header {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .name-title {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 300;
+        }
+
+        .section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+        .section:nth-child(7) { animation-delay: 0.6s; }
+        .section:nth-child(8) { animation-delay: 0.7s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-silver));
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center; /* Center the grid items */
+        }
+
+        .skill-group {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-group::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-silver));
+        }
+
+        .skill-group:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+            border-color: var(--border-elegant);
+        }
+
+        .skill-group-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent-gold);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: scale(1.05);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 40px;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-silver));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4);
+            border-color: var(--border-elegant);
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-weight: 300;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tech-tag {
+            background: rgba(192, 192, 192, 0.1);
+            color: var(--accent-silver);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(192, 192, 192, 0.2);
+        }
+
+        .project-links {
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+            color: var(--primary-dark);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .project-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(192, 192, 192, 0.2));
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .project-link:hover::before {
+            left: 0;
+        }
+
+        .project-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .link-icon {
+            font-size: 1rem;
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .credential-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .credential-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+            border-radius: 2px 0 0 2px;
+        }
+
+        .credential-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .credential-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .credential-org {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .credential-date {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+            color: var(--primary-dark);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-left: 50%;
+            padding-right: 0;
+        }
+
+        .timeline-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            width: 400px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.03);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px var(--primary-dark), 0 0 0 8px var(--accent-gold);
+        }
+
+        .timeline-date {
+            color: var(--accent-gold);
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .timeline-org {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        footer {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 12px 24px;
+            border: 1px solid var(--border-elegant);
+            border-radius: 30px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-item:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .hobbies-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .hobby-card {
+            background: rgba(165, 214, 167, 0.1);
+            border: 1px solid rgba(46, 125, 50, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            transition: all 0.4s ease;
+            color: var(--hobby-green);
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(46, 125, 50, 0.2);
+            background: rgba(165, 214, 167, 0.2);
+        }
+
+        .hobby-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .hobby-description {
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .skills-container,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item::before {
+                left: 30px;
+                transform: none;
+            }
+            
+            .timeline-content {
+                width: 100%;
+                max-width: none;
+            }
+            
+            .footer-contact {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .hobbies-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(212, 175, 55, 0.2);
+            z-index: 1000;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-silver));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="elegant-bg"></div>
+    <div class="scroll-indicator">
+        <div class="scroll-progress"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="name-title">
+                <h1 class="name">Devesh Singhal</h1>
+                <p class="title">Aspiring AI Engineer & Data Scientist</p>
+                <p class="subtitle">B.Tech Information Security • VIT Vellore • Class of 2027</p>
+            </div>
+        </header>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">About</h2>
+                <p class="section-subtitle">Dedicated to the art and science of cybersecurity</p>
+            </div>
+            <div class="about-content">
+                <p>A passionate AI Engineer and Data Scientist pursuing B.Tech in Information Security at VIT Vellore. Specializing in deep learning, generative AI, and machine learning applications with a strong foundation in problem-solving through data structures and algorithms. Committed to developing innovative AI solutions that bridge the gap between advanced technology and real-world applications.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Expertise</h2>
+                <p class="section-subtitle">Comprehensive security skill set across multiple domains</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-group">
+                    <h3 class="skill-group-title">AI & Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Neural Networks</span>
+                        <span class="skill-tag">NLP</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3 class="skill-group-title">Programming & DSA</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Algorithms</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3 class="skill-group-title">Development & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Git/GitHub</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Interactive Dashboards</span>
+                        <span class="skill-tag">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Languages</h2>
+                <p class="section-subtitle">Communication capabilities across multiple languages</p>
+            </div>
+            <div class="credentials-grid">
+                <div class="credential-item">
+                    <div class="credential-info">
+                        <h4>English</h4>
+                        <p class="credential-org">Professional Proficiency</p>
+                    </div>
+                    <div class="credential-date">Fluent</div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-info">
+                        <h4>Hindi</h4>
+                        <p class="credential-org">Native Language</p>
+                    </div>
+                    <div class="credential-date">Native</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Innovative solutions addressing real-world security challenges</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Vehicle Anomaly Detection & GenAI Explanation</h3>
+                    <p class="project-description">A Streamlit-based app for detecting anomalies in vehicle telemetry data using deep learning, with Google Gemini AI explanations and interactive dashboards for visualization.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Gemini API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/deveshsinghal09/Anomaly_detection" target="_blank" class="project-link">
+                            <span class="link-icon">🔗</span> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">AI Story Generator</h3>
+                    <p class="project-description">An AI-powered story generator using GPT-2 and Streamlit, featuring creative story generation from prompts with a simple and interactive interface.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">GPT-2</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">HuggingFace</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/deveshsinghal09/ai-story-generator" target="_blank" class="project-link">
+                            <span class="link-icon">🔗</span> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Professional Credentials</h2>
+                <p class="section-subtitle">Industry-recognized certifications and qualifications</p>
+            </div>
+            <div class="credentials-grid">
+                <div class="credential-item">
+                    <div class="credential-info">
+                        <h4>IBM Data Science Certificate</h4>
+                        <p class="credential-org">IBM Professional Certificate</p>
+                    </div>
+                    <div class="credential-date">2024</div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-info">
+                        <h4>Merit Scholarship</h4>
+                        <p class="credential-org">VIT Vellore - Outstanding Academic Performance</p>
+                    </div>
+                    <div class="credential-date">2023-24</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Professional Journey</h2>
+                <p class="section-subtitle">Academic excellence and professional achievements</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - 2027</div>
+                        <h3 class="timeline-title">B.Tech Information Security</h3>
+                        <p class="timeline-org">VIT Vellore, Tamil Nadu</p>
+                        <p class="timeline-desc">Currently in 3rd year with <strong style="color: var(--accent-gold); font-weight: 600;">CGPA of 9.11/10</strong>. Specializing in AI applications in security, deep learning, and machine learning. Strong focus on data structures, algorithms, and problem-solving methodologies with exceptional academic performance.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - Present</div>
+                        <h3 class="timeline-title">Academic Excellence</h3>
+                        <p class="timeline-org">VIT Vellore</p>
+                        <p class="timeline-desc">Maintaining exceptional academic performance with <strong style="color: var(--accent-gold); font-weight: 600;">CGPA of 9.11/10</strong>. Achieved rank holder status and received Merit Scholarship for outstanding performance in computer science subjects and consistent academic excellence.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - Present</div>
+                        <h3 class="timeline-title">AI & ML Enthusiast</h3>
+                        <p class="timeline-org">Personal Projects & Learning</p>
+                        <p class="timeline-desc">Actively working on deep learning and generative AI projects. Focus on anomaly detection systems, natural language processing, and interactive AI applications. Strong problem solver with expertise in DSA.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Hobbies</h2>
+                <p class="section-subtitle">Exploring life beyond technology</p>
+            </div>
+            <div class="hobbies-container">
+                <div class="hobby-card">
+                    <h3 class="hobby-title">Cycling</h3>
+                    <p class="hobby-description">I enjoy long rides through scenic routes, finding peace and energy in the outdoors.</p>
+                </div>
+                <div class="hobby-card">
+                    <h3 class="hobby-title">Climbing</h3>
+                    <p class="hobby-description">Rock climbing challenges me physically and mentally, pushing my limits with every ascent.</p>
+                </div>
+                <div class="hobby-card">
+                    <h3 class="hobby-title">Adventures</h3>
+                    <p class="hobby-description">I love exploring new places, from mountains to forests, embracing the thrill of discovery.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Connect With Me</h2>
+                <p class="section-subtitle">I’d love to hear from you! Feel free to reach out.</p>
+            </div>
+            <div class="about-content">
+                <p>If you’re interested in collaborating, discussing projects, or exploring opportunities, please don’t hesitate to contact me. You can reach me via:</p>
+                <ul style="text-align: left; margin-top: 20px; color: var(--text-secondary);">
+                    <li><a href="mailto:deveshoct09@gmail.com" class="contact-item" style="display: inline-block; margin-top: 10px;">Email: deveshoct09@gmail.com</a></li>
+                    <li><a href="tel:+917520833300" class="contact-item" style="display: inline-block; margin-top: 10px;">Phone: +91 75208 33300</a></li>
+                </ul>
+                <p style="margin-top: 20px; color: var(--text-muted);">I look forward to connecting and building innovative solutions together!</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-contact">
+                <a href="mailto:deveshoct09@gmail.com" class="contact-item">deveshoct09@gmail.com</a>
+                <a href="tel:+917520833300" class="contact-item">+91 75208 33300</a>
+                <a href="https://www.linkedin.com/in/devesh-singhal-b5147328a/" class="contact-item">LinkedIn</a>
+                <a href="https://github.com/deveshsinghal09" class="contact-item">GitHub</a>
+            </div>
+            <p style="color: var(--text-muted); margin-top: 20px;">© 2025 Devesh Singhal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+        });
+
+        // Animate sections on scroll
+        const sections = document.querySelectorAll('.section');
+        window.addEventListener('scroll', () => {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight * 0.75) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
